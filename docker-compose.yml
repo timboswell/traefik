@@ -17,7 +17,7 @@ services:
       - "--certificatesresolvers.leresolver.acme.tlschallenge=true"
     labels:  
       # Dashboard
-      - "traefik.http.routers.traefik.rule=Host(`traefik.docker.localhost`)"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.mgmt.sbob.uk`)"
       - "traefik.http.routers.traefik.service=api@internal"
       - "traefik.http.routers.traefik.tls.certresolver=leresolver"
       - "traefik.http.routers.traefik.entrypoints=websecure"
