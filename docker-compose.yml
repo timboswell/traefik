@@ -22,7 +22,7 @@ services:
       - "traefik.http.routers.traefik.tls.certresolver=leresolver"
       - "traefik.http.routers.traefik.entrypoints=websecure"
       - "traefik.http.routers.traefik.middlewares=authtraefik"
-      - "traefik.http.middlewares.authtraefik.basicauth.users=admin:$$apr1$$yv967z3h$$W3PZ7zQjqcBdyjAbdfzqJ0"
+      - "traefik.http.middlewares.authtraefik.basicauth.usersfile=/common/usersfile
       # global redirect to https
       - "traefik.http.routers.redirs.rule=hostregexp(`{host:.+}`)"
       - "traefik.http.routers.redirs.entrypoints=web"
@@ -34,6 +34,7 @@ services:
       - "443:443"
     volumes:
       - "./letsencrypt:/letsencrypt"
+      - "/data/common:/common"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     networks:
       - web
