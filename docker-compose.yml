@@ -23,7 +23,7 @@ services:
       - "traefik.http.routers.traefik.tls.certresolver=leresolver"
       - "traefik.http.routers.traefik.entrypoints=websecure"
       - "traefik.http.routers.traefik.middlewares=authtraefik"
-      - "traefik.http.middlewares.authtraefik.basicauth.usersfile=/common/usersfile
+      - "traefik.http.middlewares.authtraefik.basicauth.usersfile=/common/usersfile"
       # global redirect to https
       - "traefik.http.routers.redirs.rule=hostregexp(`{host:.+}`)"
       - "traefik.http.routers.redirs.entrypoints=web"
