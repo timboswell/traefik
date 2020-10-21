@@ -38,20 +38,6 @@ services:
     networks:
       - web
 
-  whoami:
-    image: "traefik/whoami"
-    container_name: "simple-service"
-    networks:
-      - web
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`whoami.mgmt.sbob.uk`)"
-      - "traefik.http.routers.whoami.middlewares=auth"
-      - "traefik.http.routers.whoami.entrypoints=websecure"
-      - "traefik.http.routers.whoami.tls=true"
-      - "traefik.http.routers.whoami.tls.certresolver=leresolver"
-      - "traefik.http.middlewares.auth.basicauth.users=admin:$$apr1$$yv967z3h$$W3PZ7zQjqcBdyjAbdfzqJ0" 
-
 networks:
   web:
     external:
