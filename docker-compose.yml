@@ -24,12 +24,21 @@ services:
     volumes:
       - "./letsencrypt:/letsencrypt"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    networks:
+      - web
+    restart-policy: unless-stopped
 
   whoami:
     image: "traefik/whoami"
     container_name: "simple-service"
+    networks:
+      - web
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami.rule=Host(`whoami.mgmt.sbob.uk`)"
       - "traefik.http.routers.whoami.entrypoints=websecure"
       - "traefik.http.routers.whoami.tls.certresolver=myresolver"
+
+networks:
+  web:
+    name: web
