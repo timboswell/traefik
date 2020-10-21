@@ -26,7 +26,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     networks:
       - web
-    restart-policy: unless-stopped
+    restart_policy: unless-stopped
 
   whoami:
     image: "traefik/whoami"
@@ -41,4 +41,3 @@ services:
 
 networks:
   web:
-    name: web
