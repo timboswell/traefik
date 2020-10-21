@@ -11,10 +11,11 @@ services:
       - "--providers.docker"
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
-      - "--certificatesresolvers.leresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+      #- "--certificatesresolvers.leresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
       - "--certificatesresolvers.leresolver.acme.email=letsencrypt@stitchbob.co.uk"
       - "--certificatesresolvers.leresolver.acme.storage=/letsencrypt/acme.json"
       - "--certificatesresolvers.leresolver.acme.tlschallenge=true"
+      - "--pilot.token=13abf967-7fae-4457-bc54-0df912ee099f"
     labels:  
       # Dashboard
       - "traefik.http.routers.traefik.rule=Host(`traefik.mgmt.sbob.uk`)"
