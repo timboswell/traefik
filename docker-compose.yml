@@ -22,7 +22,7 @@ services:
       - "traefik.http.routers.traefik.tls.certresolver=leresolver"
       - "traefik.http.routers.traefik.entrypoints=websecure"
       - "traefik.http.routers.traefik.middlewares=authtraefik"
-      - "traefik.http.middlewares.authtraefik.basicauth.users=admin:test"
+      - "traefik.http.middlewares.authtraefik.basicauth.users=admin:$apr1$yv967z3h$W3PZ7zQjqcBdyjAbdfzqJ0"
       # global redirect to https
       - "traefik.http.routers.redirs.rule=hostregexp(`{host:.+}`)"
       - "traefik.http.routers.redirs.entrypoints=web"
@@ -50,7 +50,7 @@ services:
       - "traefik.http.routers.whoami.entrypoints=websecure"
       - "traefik.http.routers.whoami.tls=true"
       - "traefik.http.routers.whoami.tls.certresolver=leresolver"
-      - "traefik.http.middlewares.auth.basicauth.users=user:test" 
+      - "traefik.http.middlewares.auth.basicauth.users=admin:$apr1$yv967z3h$W3PZ7zQjqcBdyjAbdfzqJ0" 
 
 networks:
   web:
