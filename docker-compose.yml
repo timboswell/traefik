@@ -50,7 +50,7 @@ services:
       - "traefik.http.routers.whoami.entrypoints=websecure"
       - "traefik.http.routers.whoami.tls=true"
       - "traefik.http.routers.whoami.tls.certresolver=leresolver"
-      - "traefik.http.middlewares.auth.basicauth.users=admin:$$apr1$$yv967z3h$W3PZ7zQjqcBdyjAbdfzqJ0" 
+      - "traefik.http.middlewares.auth.basicauth.users=admin:$$apr1$$yv967z3h$$W3PZ7zQjqcBdyjAbdfzqJ0" 
 
 networks:
   web:
